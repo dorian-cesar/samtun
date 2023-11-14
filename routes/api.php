@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ParaderosController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,8 @@ Route::post('v1/register', [AuthController::class,'register']);
 
 Route::post('v1/login', [AuthController::class,'login']);
 
+Route::resource('v1/paraderos' , ParaderosController::class);
+
 
 
 
@@ -30,6 +33,8 @@ Route::middleware(['auth:sanctum'])->group( function (){
     Route::resource('v1/productos', ProductoController::class);
 
     Route::get('v1/logout', [AuthController::class,'logout']);
+
+
 
 });
 
